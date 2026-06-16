@@ -2,12 +2,11 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUpRight,
-  Award,
   BarChart3,
   BookOpen,
   BriefcaseBusiness,
+  CheckCircle2,
   Database,
-  Download,
   GraduationCap,
   LineChart,
   Mail,
@@ -18,6 +17,7 @@ import {
   Printer,
   Send,
   Sparkles,
+  Target,
   X
 } from "lucide-react";
 import "./styles.css";
@@ -41,6 +41,8 @@ const stats = [
   ["92", "Insight Score"],
   ["100%", "Data Focus"]
 ];
+
+const heroHighlights = ["Business dashboards", "SQL analysis", "KPI reporting"];
 
 const resume = [
   {
@@ -103,6 +105,8 @@ const projects = [
     text: "Compares channel performance, conversion cost, lead quality, and campaign ROI through interactive visuals."
   }
 ];
+
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 function App() {
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -175,21 +179,32 @@ function App() {
         <section id="home" className="hero section-shell">
           <div className="hero-copy">
             <p className="eyebrow">
-              <BarChart3 size={16} />
-              Available for data analysis projects
+              <Target size={16} />
+              Data analyst for smarter decisions
             </p>
             <h1>
-              Hi, I am <span>{profile.name}</span>, a {profile.role}
+              Hi, I am <span>{profile.name}</span>. I turn data into decisions.
             </h1>
-            <p className="lead">{profile.tagline}</p>
+            <p className="lead">
+              A {profile.role} who builds clean reports, powerful dashboards, and practical insights from messy
+              business data.
+            </p>
+            <div className="hero-highlights" aria-label="Analytics strengths">
+              {heroHighlights.map((item) => (
+                <span key={item}>
+                  <CheckCircle2 size={17} />
+                  {item}
+                </span>
+              ))}
+            </div>
             <div className="hero-actions">
               <a className="primary-action" href="#contact">
                 <Mail size={18} />
-                Hire Me
+                Start a Project
               </a>
-              <a className="secondary-action" href="#resume">
-                <Download size={18} />
-                View Resume
+              <a className="secondary-action" href="#projects">
+                <BarChart3 size={18} />
+                See My Work
               </a>
             </div>
             <div className="stats-grid">
@@ -204,15 +219,15 @@ function App() {
 
           <div className="portrait-wrap" aria-label="Profile image">
             <div className="portrait-frame">
-              <img src="/profile-image.png" alt="Piyush profile portrait" />
+              <img src={assetPath("profile-image.png")} alt="Piyush profile portrait" />
             </div>
             <div className="orbit-card top">
               <PieChart size={20} />
               KPI Insights
             </div>
             <div className="orbit-card bottom">
-              <Award size={20} />
-              Clean Data
+              <LineChart size={20} />
+              Clear Trends
             </div>
           </div>
         </section>

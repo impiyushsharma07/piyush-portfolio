@@ -237,7 +237,7 @@ a {
 .hero {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.82fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.78fr);
   align-items: center;
   gap: clamp(36px, 6vw, 82px);
   padding-top: 120px;
@@ -270,20 +270,48 @@ p {
 h1 {
   margin-bottom: 22px;
   color: var(--ink);
-  font-size: clamp(2.65rem, 7vw, 5.85rem);
-  line-height: 0.98;
+  font-size: clamp(3.1rem, 7.2vw, 6.45rem);
+  line-height: 0.94;
   letter-spacing: 0;
 }
 
 h1 span {
-  color: var(--blue);
+  color: transparent;
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  background-clip: text;
 }
 
 .lead {
   max-width: 630px;
   color: var(--muted);
-  font-size: clamp(1.04rem, 2vw, 1.24rem);
+  font-size: clamp(1.08rem, 2vw, 1.32rem);
   line-height: 1.75;
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-highlights span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid rgba(15, 159, 117, 0.22);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 12px 28px rgba(20, 32, 50, 0.07);
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.hero-highlights svg {
+  color: var(--green);
 }
 
 .hero-actions,
@@ -300,8 +328,8 @@ h1 span {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 50px;
-  padding: 0 20px;
+  min-height: 54px;
+  padding: 0 22px;
   border-radius: 14px;
   font-weight: 900;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -360,6 +388,18 @@ h1 span {
   width: min(430px, 100%);
 }
 
+.portrait-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -18px 22px 22px -18px;
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(15, 159, 117, 0.18)),
+    #ffffff;
+  transform: rotate(-4deg);
+  box-shadow: 0 24px 60px rgba(20, 32, 50, 0.12);
+}
+
 .portrait-frame {
   position: relative;
   aspect-ratio: 0.78;
@@ -371,6 +411,7 @@ h1 span {
     linear-gradient(320deg, rgba(15, 159, 117, 0.2), transparent 48%),
     #ffffff;
   box-shadow: var(--shadow);
+  z-index: 1;
 }
 
 .portrait-frame::before {
@@ -406,6 +447,7 @@ h1 span {
   box-shadow: 0 18px 36px rgba(20, 32, 50, 0.12);
   font-weight: 900;
   animation: cardPulse 4s ease-in-out infinite alternate;
+  z-index: 2;
 }
 
 .orbit-card.top {
