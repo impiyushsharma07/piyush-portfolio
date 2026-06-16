@@ -850,9 +850,22 @@ h1 span {
 }
 
 @media (max-width: 720px) {
+  body {
+    background: #eef3f8;
+  }
+
+  body::before {
+    background:
+      radial-gradient(circle at 18% 4%, rgba(37, 99, 235, 0.18), transparent 26%),
+      radial-gradient(circle at 90% 18%, rgba(15, 159, 117, 0.16), transparent 30%),
+      linear-gradient(180deg, #f8fbff 0%, #eef3f8 46%, #f7faf8 100%);
+  }
+
   .navbar {
     gap: 10px;
     padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 28px rgba(20, 32, 50, 0.08);
   }
 
   .brand {
@@ -942,6 +955,28 @@ h1 span {
     padding-top: 94px;
   }
 
+  .hero.section-shell {
+    width: min(100% - 20px, 1160px);
+  }
+
+  .hero-copy {
+    padding: 24px 18px 18px;
+    border: 1px solid rgba(23, 32, 42, 0.08);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 20px 45px rgba(20, 32, 50, 0.1);
+    backdrop-filter: blur(18px);
+  }
+
+  .eyebrow,
+  .section-heading p {
+    margin-bottom: 14px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(15, 159, 117, 0.1);
+    font-size: 0.74rem;
+  }
+
   h1 {
     margin-bottom: 16px;
     font-size: clamp(2.15rem, 11.5vw, 3.7rem);
@@ -956,16 +991,21 @@ h1 span {
 
   .hero-highlights {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
     margin-top: 20px;
   }
 
   .hero-highlights span {
-    justify-content: flex-start;
-    min-height: 42px;
-    padding: 0 12px;
-    font-size: 0.88rem;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    min-height: 78px;
+    padding: 10px 8px;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    line-height: 1.25;
+    text-align: center;
   }
 
   .hero-actions,
@@ -991,6 +1031,8 @@ h1 span {
   .stat {
     min-height: 82px;
     padding: 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.88);
   }
 
   .stat strong {
@@ -998,7 +1040,8 @@ h1 span {
   }
 
   .section-heading {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
+    padding: 0 4px;
   }
 
   .section-heading h2,
@@ -1045,9 +1088,63 @@ h1 span {
     justify-self: end;
   }
 
+  .profile-panel,
+  .timeline-item,
+  .edu-card,
+  .skill-row,
+  .project-card,
+  .contact-section,
+  .contact-form {
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 16px 36px rgba(20, 32, 50, 0.09);
+  }
+
+  .profile-panel {
+    padding: 22px;
+  }
+
+  .quick-info span {
+    min-height: 46px;
+    padding: 0 12px;
+    border-radius: 12px;
+    background: rgba(247, 248, 251, 0.9);
+    font-size: 0.9rem;
+  }
+
   .timeline-item {
     padding-top: 22px;
     padding-bottom: 22px;
+    background:
+      linear-gradient(90deg, rgba(37, 99, 235, 0.08), transparent 44%),
+      rgba(255, 255, 255, 0.88);
+  }
+
+  .education-grid,
+  .project-grid,
+  .skills-grid,
+  .resume-timeline {
+    gap: 12px;
+  }
+
+  .edu-card,
+  .skill-row,
+  .project-card {
+    padding: 20px;
+  }
+
+  .skill-top {
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .progress-track {
+    height: 10px;
+  }
+
+  .project-art {
+    height: 118px;
+    border-radius: 14px;
   }
 
   .contact-section {
@@ -1058,21 +1155,23 @@ h1 span {
     padding: 18px;
   }
 
+  .contact-form input,
+  .contact-form select {
+    min-height: 52px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    border-radius: 12px;
+  }
+
   .float-icon {
-    width: 58px;
-    height: 58px;
-    border-radius: 16px;
-    font-size: 0.72rem;
+    display: none;
   }
 
-  .code,
-  .node {
-    left: -22px;
-  }
-
-  .bolt,
-  .react {
-    right: -24px;
+  .float-dot {
+    opacity: 0.45;
   }
 }
 
@@ -1175,6 +1274,27 @@ h1 span {
   .nav-links a {
     justify-content: flex-start;
     padding-left: 14px;
+  }
+
+  .hero {
+    padding-top: 88px;
+  }
+
+  .hero-copy {
+    padding: 22px 16px 16px;
+    border-radius: 22px;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-highlights span {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 0 12px;
+    text-align: left;
   }
 
   .hero-actions,
