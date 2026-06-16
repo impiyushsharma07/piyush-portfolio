@@ -14,7 +14,6 @@ import {
   Menu,
   PieChart,
   Phone,
-  Printer,
   Send,
   Sparkles,
   Target,
@@ -113,7 +112,6 @@ function App() {
   const [formStatus, setFormStatus] = React.useState("");
 
   const closeMenu = () => setMenuOpen(false);
-  const printResume = () => window.print();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -154,20 +152,28 @@ function App() {
           <span>P</span>
           Piyush
         </a>
-        <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Primary navigation">
+        <nav id="primary-navigation" className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Primary navigation">
           {navItems.map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} onClick={closeMenu}>
               {item}
             </a>
           ))}
         </nav>
-        <button className="print-button" type="button" onClick={printResume}>
-          <Printer size={18} />
-          Print Resume
-        </button>
+        <a
+          className="print-button"
+          href="https://drive.google.com/file/d/1ZmuR5UlwJnopPJXPK_7o7kkDUkohag5p/view?usp=drivesdk"
+          target="_blank"
+          rel="noreferrer"
+          onClick={closeMenu}
+        >
+          <BookOpen size={18} />
+          My Resume
+        </a>
         <button
           className="icon-button"
           type="button"
+          aria-controls="primary-navigation"
+          aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((value) => !value)}
         >
